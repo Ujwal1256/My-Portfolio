@@ -1,4 +1,5 @@
 import React from "react";
+import photo from "../assets/photo.jpg";
 
 export default function Hero() {
   return (
@@ -6,7 +7,7 @@ export default function Hero() {
       id="home"
       className="bg-[#f7f9fd] text-black min-h-screen flex flex-col md:flex-row justify-center items-center px-6"
     >
-      <div className="flex-1 flex flex-col justify-center items-start md:items-start text-left">
+      <div className="flex-1 flex flex-col justify-center items-start text-left w-full md:w-1/2 h-full">
         <span className="text-sm font-semibold text-[#6c63ff] mb-2">
           FULL STACK DEVELOPER
         </span>
@@ -31,11 +32,11 @@ export default function Hero() {
           </a>
         </div>
       </div>
-      <div className="flex-1 flex justify-center items-center mt-10 md:mt-0">
+      <div className="flex-1 flex justify-center items-center w-full md:w-1/2 h-full mt-8 md:mt-0">
         <img
-          src="my-portfolio/src/assets/photo.jpg"
+          src={photo}
           alt="Ujwal Jakhamate"
-          className="w-72 h-72 object-cover rounded-xl shadow-lg"
+          className="w-48 h-48 md:w-72 md:h-72 object-cover rounded-xl shadow-lg"
         />
       </div>
     </section>

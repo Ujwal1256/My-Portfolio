@@ -1,30 +1,34 @@
+import memoryLaneImg from '../assets/memoryLane.png';
+import petCareImg from '../assets/petCare.png';
+import emsImg from '../assets/ems.jpg';
+
 export default function Projects() {
     const projects = [
         {
             title: "PraskoEMS - Employee Management",
             desc: "Android mobile app for employee check-in/out with real-time location tracking and admin dashboard for attendance management.",
-            tags: ["Android (Java)", "Firebase", "Authentication", "Location Services", "Real-time DB"],
-            github: "#",
-            demo: "#",
-            image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c", // Example image
-            demoLabel: "Demo"
+            tags: ["Android (Java)", "Firebase", "Authentication", "Location Services", "Firebase FireStore"],
+            github: "",
+            demo: "",
+            image: emsImg, 
+            demoLabel: "Unatirirsed"
         },
         {
             title: "Memory Lane Personal",
             desc: "Personal web app for storing and organizing memories with photos, notes, tags, and sharing features with timeline view.",
-            tags: ["HTML5", "CSS3", "JavaScript", "Firebase", "Authentication"],
-            github: "#",
-            demo: "#",
-            image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308", // Example image
+            tags: ["HTML5", "CSS","BootStrap", "JavaScript", "Firebase", "Authentication"],
+            github: "https://github.com/Ujwal1256/Ujwal1256-MemoryLane_Personal/tree/main/MemoryLane_Personal",
+            demo: "https://memory-lane-personal.netlify.app/",
+            image: memoryLaneImg, 
             demoLabel: "Live"
         },
         {
             title: "Pet Care App",
             desc: "React web application for pet health management with feeding schedules, appointment reminders, and wellness tracking analytics.",
-            tags: ["React.js", "Firebase", "JavaScript", "CSS3", "Authentication", "Real-time Updates"],
-            github: "#",
-            demo: "#",
-            image: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d", // Example image
+            tags: ["React.js", "Firebase", "JavaScript", "Tailwind CSS", "Authentication", "Real-time Updates"],
+            github: "https://github.com/Ujwal1256/Pet-Care-App/tree/main/pet-care-app",
+            demo: "https://pet-care-app-for-all.netlify.app/",
+            image: petCareImg,
             demoLabel: "Live"
         }
     ];
