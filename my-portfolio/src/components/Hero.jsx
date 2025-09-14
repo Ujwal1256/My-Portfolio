@@ -1,5 +1,5 @@
 import React from "react";
-import photo from "../assets/photo.jpg";
+import myPhoto from "../assets/myphoto.jpg";
 
 export default function Hero() {
   return (
@@ -34,7 +34,7 @@ export default function Hero() {
       </div>
       <div className="flex-1 flex justify-center items-center w-full md:w-1/2 h-full mt-8 md:mt-0">
         <img
-          src={photo}
+          src={myPhoto}
           alt="Ujwal Jakhamate"
           className="w-48 h-48 md:w-72 md:h-72 object-cover rounded-xl shadow-lg"
         />

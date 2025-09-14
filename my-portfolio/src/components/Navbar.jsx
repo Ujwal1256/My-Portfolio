@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import resumePDF from "../assets/Resume.pdf";
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +72,7 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="/resume.pdf"
+              href={resumePDF}
               download
               className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-500 text-white font-semibold px-5 py-2 rounded-lg shadow hover:from-blue-700 hover:to-purple-600 transition"
             >
@@ -136,7 +138,7 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="/resume.pdf"
+              href="/assets/Resume.pdf"
               download
               className="flex justify-center items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-500 text-white font-semibold px-5 py-2 rounded-lg shadow hover:from-blue-700 hover:to-purple-600 transition"
               onClick={() => setIsOpen(false)}
