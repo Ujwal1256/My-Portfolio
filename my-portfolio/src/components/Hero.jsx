@@ -1,5 +1,5 @@
 import React from "react";
-import myPhoto from "../assets/myphoto.jpg";
+import myPhoto from "../assets/myPhoto.jpg";
 
 export default function Hero() {
   return (
@@ -36,7 +36,7 @@ export default function Hero() {
         <img
           src={myPhoto}
           alt="Ujwal Jakhamate"
-          className="w-48 h-48 md:w-72 md:h-72 object-cover rounded-xl shadow-lg"
+          className="w-100 h-100 md:w-72 md:h-72 object-cover rounded-xl shadow-lg"
         />
       </div>
     </section>
