@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import resumePDF from "../assets/Resume.pdf";
-
+import resumePDF from "../assets/Ujwal_Jakhamate_Resume.pdf";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,42 +13,58 @@ export default function Navbar() {
     { id: "contact", label: "Contact" },
   ];
 
-  // Smooth scroll to section
+  // Smooth scroll to section (top)
   const scrollTo = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -70;
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      setActiveSection(id);
       setIsOpen(false);
     }
   };
 
-  // Track active section using Intersection Observer
+  const handleResumeClick = () => {
+    // Open resume in new tab
+    window.open(resumePDF, "_blank");
+
+    // Trigger a download after a short delay
+    const link = document.createElement("a");
+    link.href = resumePDF;
+    link.download = "Ujwal_Jakhamate_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // Track active section dynamically
   useEffect(() => {
-    const sections = items.map((item) =>
-      document.getElementById(item.id)
-    );
+    const sections = items.map((item) => document.getElementById(item.id));
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      { root: null, rootMargin: "0px", threshold: 0.6 }
+      { threshold: 0.4 }
     );
 
     sections.forEach((section) => section && observer.observe(section));
-
-    return () => sections.forEach((section) => section && observer.unobserve(section));
+    return () =>
+      sections.forEach((section) => section && observer.unobserve(section));
   }, []);
 
   return (
-    <nav className="bg-white sticky  top-0 z-50 shadow-sm border-b border-gray-100">
+    <nav className="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
-        <h1 className="text-2xl font-bold">
+        <h1
+          className="text-2xl font-bold cursor-pointer"
+          onClick={() => scrollTo("home")}
+        >
           <span className="text-blue-600">UJWAL</span>{" "}
           <span className="text-gray-900">JAKHAMATE</span>
         </h1>
@@ -71,9 +86,9 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a
-              href={resumePDF}
-              download
+            {/* Resume Button: Opens in new tab & downloadable */}
+            <button
+              onClick={handleResumeClick}
               className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-500 text-white font-semibold px-5 py-2 rounded-lg shadow hover:from-blue-700 hover:to-purple-600 transition"
             >
               <svg
@@ -91,11 +106,11 @@ export default function Navbar() {
                 />
               </svg>
               Resume
-            </a>
+            </button>
           </li>
         </ul>
 
-        {/* Hamburger Icon (Mobile) */}
+        {/* Hamburger Icon */}
         <button
           className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
@@ -136,12 +151,10 @@ export default function Navbar() {
               </button>
             </li>
           ))}
-          <li>
-            <a
-              href="/assets/Resume.pdf"
-              download
-              className="flex justify-center items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-500 text-white font-semibold px-5 py-2 rounded-lg shadow hover:from-blue-700 hover:to-purple-600 transition"
-              onClick={() => setIsOpen(false)}
+          <li className="w-full flex justify-center mt-4">
+            <button
+              onClick={handleResumeClick}
+              className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-500 text-white font-semibold px-5 py-2 rounded-lg shadow hover:from-blue-700 hover:to-purple-600 transition"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +171,7 @@ export default function Navbar() {
                 />
               </svg>
               Resume
-            </a>
+            </button>
           </li>
         </ul>
       )}
