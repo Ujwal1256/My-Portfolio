@@ -30,7 +30,7 @@ export default function Navbar() {
     // Open resume in new tab
     window.open(resumePDF, "_blank");
 
-    // Trigger a download after a short delay
+    // Force proper download with correct name
     const link = document.createElement("a");
     link.href = resumePDF;
     link.download = "Ujwal-Jakhamate-Resume.pdf";
