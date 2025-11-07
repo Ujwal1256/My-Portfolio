@@ -8,7 +8,8 @@ export default function Projects() {
       title: "Investment Portfolio Tracker",
       desc: "Full-stack web app for tracking and analyzing investments across stocks, crypto, and bonds with real-time insights and analytics.",
       tags: ["React", "Node.js", "Express JS", "MongoDB", "Netlify", "Render"],
-      github: "https://github.com/Ujwal1256/Investment-Portfolio-Tracker/tree/main/frontend/Investment-Portfolio-Tracker",
+      github:
+        "https://github.com/Ujwal1256/Investment-Portfolio-Tracker/tree/main/frontend/Investment-Portfolio-Tracker",
       demo: "https://investment-portfolio-tracker-app.netlify.app/",
       image: investmentimg,
       demoLabel: "Live",
@@ -73,7 +74,7 @@ export default function Projects() {
               {proj.tags.map((tag, i) => (
                 <span
                   key={i}
-                  className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium border"
+                  className="bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded-md text-[10px] font-medium border border-gray-200"
                 >
                   {tag}
                 </span>

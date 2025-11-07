@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import resumePDF from "../assets/Ujwal_Jakhamate_Resume.pdf";
+import resumePDF from "../assets/Ujwal-Jakhamate-Resume.pdf";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +17,10 @@ export default function Navbar() {
   const scrollTo = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      const yOffset = -70;
-      const y =
-        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
+      const navbarHeight = document.querySelector("nav").offsetHeight; // dynamically get navbar height
+      const sectionTop = section.offsetTop - navbarHeight; // scroll just below navbar
+      window.scrollTo({ top: sectionTop, behavior: "smooth" });
+
       setActiveSection(id);
       setIsOpen(false);
     }
@@ -33,7 +33,7 @@ export default function Navbar() {
     // Trigger a download after a short delay
     const link = document.createElement("a");
     link.href = resumePDF;
-    link.download = "Ujwal_Jakhamate_Resume.pdf";
+    link.download = "Ujwal-Jakhamate-Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
